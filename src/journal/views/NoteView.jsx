@@ -1,5 +1,6 @@
 import { SaveOutlined } from "@mui/icons-material"
 import { Button, Grid, TextField, Typography } from "@mui/material"
+import ImageGallery from "../components/ImageGallery"
 
 
 const NoteView = () => {
@@ -29,14 +30,15 @@ const NoteView = () => {
                 />
                 <TextField 
                     type="text"
-                    variant="filled"
                     fullWidth
+                    variant="filled"
                     multiline
                     placeholder = "¿Que sucedió hoy?"
                     sx={{border: 'none', mb:1}}
                     minRows={5}
                 />
             </Grid>
+            <ImageGallery />
         </Grid>
     )
 }
