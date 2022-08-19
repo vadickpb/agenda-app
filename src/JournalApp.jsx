@@ -4,9 +4,9 @@ import AppTheme from "./theme/AppTheme"
 const JournalApp = () => {
   return (
     <>
-    <AppTheme>
-      <AppRoute />
-    </AppTheme>
+      <AppTheme>
+          <AppRoute />
+      </AppTheme>
     </>
   )
 }
