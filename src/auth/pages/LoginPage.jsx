@@ -2,7 +2,7 @@ import { useMemo } from "react"
 
 import { useDispatch, useSelector } from "react-redux"
 import { Link as RouterLink } from "react-router-dom"
-import { checkingAuthentication, startGooogleSignIn, startLoginWithEmailPassword } from "../../store/auth/thunks"
+import { startGooogleSignIn, startLoginWithEmailPassword } from "../../store/auth/thunks"
 import { useForm } from "../../hooks/useForm"
 import { Google } from "@mui/icons-material"
 import { Button, Grid, TextField, Typography, Link, Alert } from "@mui/material"
@@ -31,8 +31,8 @@ const LoginPage = () => {
     return (
 
         <AuthLayout title='Login'>
-            <form onSubmit={onSubmit}>
-                <Grid container>
+            <form onSubmit={onSubmit} >
+                <Grid container className = 'animate__animated animate__fadeIn animate__faster'>
                     <Grid item xs={12} sx={{ mt: 2 }}>
                         <TextField
                             label="correo"
