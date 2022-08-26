@@ -8,13 +8,15 @@ import { Google } from "@mui/icons-material"
 import { Button, Grid, TextField, Typography, Link, Alert } from "@mui/material"
 import AuthLayout from "../layout/AuthLayout"
 
+
+const formData = {
+    email: '',
+    password: '',
+}
 const LoginPage = () => {
     const { status, errorMessage } = useSelector(state => state.auth)
     const dispatch = useDispatch();
-    const { email, password, onInputChange, formState } = useForm({
-        email: 'vaidk@gmail.com',
-        password: '123456',
-    })
+    const { email, password, onInputChange, formState } = useForm(formData)
 
     const isAuthenticated = useMemo(() => status === 'checking', [status]);
 
