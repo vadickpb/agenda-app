@@ -12,7 +12,7 @@ import { Button, Grid, IconButton, TextField, Typography } from "@mui/material"
 import { useForm } from "../../hooks/useForm"
 import ImageGallery from "../components/ImageGallery"
 import { setActiveNote } from "../../store/journal/journalSlice"
-import { startSaveNote } from "../../store/journal/thunks"
+import { startLoadingFiles, startSaveNote } from "../../store/journal/thunks"
 import { useRef } from "react"
 
 
@@ -47,9 +47,9 @@ const NoteView = () => {
     
     const onFileInputChange = ({target}) => {
 
-        if (target.files > 0) return;
+        if (target.files === 0) return;
         console.log('subiendo archivos');
-        // dispatch(startLoadingFiles(target.files))
+        dispatch(startLoadingFiles(target.files))
     }
 
     return (
