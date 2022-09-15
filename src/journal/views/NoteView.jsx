@@ -7,12 +7,12 @@ import Swal from "sweetalert2"
 
 import 'sweetalert2/dist/sweetalert2.css'
 
-import { SaveOutlined, UploadOutlined } from "@mui/icons-material"
+import { DeleteOutline, SaveOutlined, UploadOutlined } from "@mui/icons-material"
 import { Button, Grid, IconButton, TextField, Typography } from "@mui/material"
 import { useForm } from "../../hooks/useForm"
 import ImageGallery from "../components/ImageGallery"
 import { setActiveNote } from "../../store/journal/journalSlice"
-import { startLoadingFiles, startSaveNote } from "../../store/journal/thunks"
+import { startDeletingNotes, startLoadingFiles, startSaveNote } from "../../store/journal/thunks"
 import { useRef } from "react"
 
 
@@ -50,6 +50,10 @@ const NoteView = () => {
         if (target.files === 0) return;
         console.log('subiendo archivos');
         dispatch(startLoadingFiles(target.files))
+    }
+
+    const onDelete = () => {
+        dispatch(startDeletingNotes());
     }
 
     return (
@@ -117,7 +121,19 @@ const NoteView = () => {
                     onChange={onInputChange}
                 />
             </Grid>
-            <ImageGallery />
+
+            <Grid container justifyContent='end'>
+                <Button
+                    onClick={onDelete}
+                    sx = {{mt: 2  }}
+                    color = "error"
+                >
+                    <DeleteOutline />
+                    Borrar
+                </Button>
+
+            </Grid>
+            <ImageGallery images = {note.imageUrls}/>
         </Grid>
     )
 }

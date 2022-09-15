@@ -1,15 +1,17 @@
 import { ImageList, ImageListItem } from "@mui/material";
+import { useSelector } from "react-redux";
 
 
-const ImageGallery = () => {
+const ImageGallery = ({images}) => {
+
     return (
         <ImageList sx={{ width: 500, height: 450 }} cols={4} rowHeight={164}>
-            {itemData.map((item) => (
-                <ImageListItem key={item.img}>
+            {images?.map((image) => (
+                <ImageListItem key={image}>
                     <img
-                        src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-                        srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-                        alt={item.title}
+                        src={`${image}?w=164&h=164&fit=crop&auto=format`}
+                        srcSet={`${image}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                        alt='Imagen de la nota'
                         loading="lazy"
                     />
                 </ImageListItem>
